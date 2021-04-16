@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title blue lighten-4 center z-depth-2" contenteditable="true" id="title"></div>
+
+      <ul class="text-format blue-grey lighten-5">
+        <li>
+          <a href="javascript:void(0)" onclick="format('bold')">
+            <i class="material-icons z-depth-1 black-text">format_bold</i>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('italic')">
+            <i class="material-icons z-depth-1 black-text">format_italic</i>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('insertunorderedlist')">
+            <i class="material-icons z-depth-1 black-text"
+              >format_list_bulleted</i
+            >
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('insertOrderedList')">
+            <i class="material-icons z-depth-1 black-text"
+              >format_list_numbered</i
+            >
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('justifyLeft')">
+            <i class="material-icons z-depth-1 black-text">format_align_left</i>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('justifyCenter')">
+            <i class="material-icons z-depth-1 black-text"
+              >format_align_center</i
+            >
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('justifyRight')">
+            <i class="material-icons z-depth-1 black-text"
+              >format_align_right</i
+            >
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('justifyFull')">
+            <i class="material-icons z-depth-1 black-text"
+              >format_align_justify</i
+            >
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0)" onclick="format('underline')">
+            <i class="material-icons z-depth-1 black-text">format_underlined</i>
+          </a>
+        </li>
+        <li>
+          <input id="input-color" type="color" onchange="chooseColor()" />
+        </li>
+        <li>
+          <select id="input-font" class="browser-default" onchange="changeFont();">
+            <option value="Arial" selected>Arial</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Sans serif">Sans serif</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Palatino">Palatino</option>
+            <option value="Garamond">Garamond</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Arial Black">Arial Black</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+          </select>
+        </li>
+        <li>
+          <select id="input-font-size" class="browser-default" onchange="changeFontSize()" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </li>
+      </ul>
+
+      <div class="editor z-depth-3" contenteditable="true" id="editor"></div>
+
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large black">
+          <i class="large material-icons">menu</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating blue darken-2" onclick="btnHomeHandler()"><i class="material-icons">home</i></a></li>
+          <li><a class="btn-floating red darken-1" onclick="btnDeleteDocument()"><i class="material-icons">delete_forever</i></a></li>
+        </ul>
+      </div>
+
+    <!-- js MATERIALIZE setup -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./scripts/materialise-init.js"></script>
+
+    <!-- js FIREBASE SETUP -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="./scripts/firebase-init.js"></script>
+
+    <!-- main JS -->
+    <script src="./scripts/editor.js"></script>
+  </body>
+</html>

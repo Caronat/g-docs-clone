@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G-Docs Clone</title>
+
+    <!-- css MATERIALIZE setup -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="blue darken-2">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo left" style="padding-left: 20px"
+          ><span class="material-icons">description</span> G-Docs Clone</a
+        >
+        <a
+          href="#"
+          data-target="mobile-demo"
+          class="sidenav-trigger right hide-on-med-and-up"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-small-only">
+          <li
+            class="logged-in tooltipped"
+            data-tooltip="Account"
+            style="display: none"
+          >
+            <a href="#" class="modal-trigger" data-target="modal-account"
+              ><i class="material-icons">account_box</i></a
+            >
+          </li>
+          <li
+            class="logged-in tooltipped"
+            data-tooltip="Logout"
+            style="display: none"
+          >
+            <a href="#" class="modal-trigger" data-target="modal-logout"
+              ><i class="material-icons">logout</i></a
+            >
+          </li>
+          <li
+            class="logged-out tooltipped"
+            data-tooltip="Login"
+            style="display: none"
+          >
+            <a href="#" class="modal-trigger" data-target="modal-login"
+              ><i class="material-icons">login</i></a
+            >
+          </li>
+          <li
+            class="logged-out tooltipped"
+            data-tooltip="Sign up"
+            style="display: none"
+          >
+            <a href="#" class="modal-trigger" data-target="modal-signup"
+              ><i class="material-icons">person_add</i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- SIDEBAR -->
+    <ul class="sidenav blue lighten-4" id="mobile-demo">
+      <li class="logged-in" style="display: none">
+        <a href="#" class="modal-trigger" data-target="modal-account"
+          >Account</a
+        >
+      </li>
+      <li class="logged-in" style="display: none">
+        <a href="#" class="modal-trigger" data-target="modal-logout">Logout</a>
+      </li>
+      <li class="logged-out" style="display: none">
+        <a href="#" class="modal-trigger" data-target="modal-login">Login</a>
+      </li>
+      <li class="logged-out" style="display: none">
+        <a href="#" class="modal-trigger" data-target="modal-signup">Sign up</a>
+      </li>
+    </ul>
+
+    <div id="documents-container"></div>
+
+    <div class="fixed-action-btn logged-in" style="display: none">
+      <a
+        class="btn-floating btn-large blue darken-2"
+        onclick="createDocument()"
+      >
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Sign up</h4>
+        <br />
+        <form id="signup-form">
+          <div class="input-field">
+            <i class="material-icons prefix">perm_identity</i>
+            <input type="text" id="signup-name" required />
+            <label for="signup-name">User name</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">vpn_key</i>
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Your password</label>
+          </div>
+          <button class="btn blue darken-2">Sign up</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <h4>Login</h4>
+        <br />
+        <form id="login-form">
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">vpn_key</i>
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn blue darken-2">Login</button>
+          <a href="#" class="right modal-trigger" data-target="modal-reset-pass"
+            >Forgot your password ?</a
+          >
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOGOUT MODAL -->
+    <div id="modal-logout" class="modal">
+      <div class="modal-content">
+        <h4>Logout</h4>
+        <br />
+        <form id="logout-form">
+          <p>Are you sure you want to logged out ?</p>
+          <button class="btn red darken-2">Logged Out !</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content">
+        <h4>Account</h4>
+        <br />
+        <div class="account-details"></div>
+      </div>
+    </div>
+
+    <!-- RESET PASSWORD MODAL -->
+    <div id="modal-reset-pass" class="modal">
+      <div class="modal-content">
+        <h4>Logout</h4>
+        <br />
+        <form id="reset-pass-form">
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="email" id="login-email-reset" required />
+            <label for="login-email-reset">Email address</label>
+          </div>
+          <button class="btn yellow darken-2">Reset password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- js MATERIALIZE setup -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./scripts/materialise-init.js"></script>
+
+    <!-- js FIREBASE SETUP -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="./scripts/firebase-init.js"></script>
+
+    <!-- main JS -->
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

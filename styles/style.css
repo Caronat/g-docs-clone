@@ -1,0 +1,72 @@
+/* ************************* MATERIAL CSS ************************* */
+.input-field input:focus {
+  border-bottom: 1px solid #64b5f6 !important;
+  box-shadow: 0 1px 0 0 #64b5f6 !important;
+}
+.input-field label.active {
+  color: #64b5f6 !important;
+}
+.input-field .prefix.active {
+  color: #64b5f6 !important;
+}
+/* ************************* HOME ************************* */
+#documents-container {
+  margin: auto;
+  margin-top: 24px;
+  width: 80%;
+}
+#documents-container tbody tr {
+  cursor: pointer;
+}
+
+/* ************************* EDITOR ************************* */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container ul.text-format {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 700px;
+  min-width: 510px;
+}
+.container .editor {
+  width: 90%;
+  min-height: 75vh;
+  padding: 10px;
+  outline: none;
+}
+.container .title {
+  width: 70%;
+  height: 32px;
+  padding: 8px;
+  margin: 10px;
+  margin-bottom: 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.container ul.text-format i {
+  height: 2rem !important;
+  width: 2rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container ul.text-format #input-color {
+  height: 2rem;
+}
+.container ul.text-format select {
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 2rem;
+  outline: none;
+  background: transparent;
+}
